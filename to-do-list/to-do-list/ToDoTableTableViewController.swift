@@ -9,11 +9,7 @@ import UIKit
 
 class ToDoTableTableViewController: UITableViewController {
     var listOfToDo : [ToDoClass] = []
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        listOfToDo = createToDo()
-    }
 
     func createToDo () -> [ToDoClass] {
         let swiftToDo = ToDoClass()
@@ -26,7 +22,11 @@ class ToDoTableTableViewController: UITableViewController {
         return[swiftToDo , dogToDo]
     }
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        listOfToDo = createToDo()
+    }
     
 
     
@@ -52,35 +52,17 @@ class ToDoTableTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath){
+        
+        let eachToDo = listOfToDo[indexPath.row]
+        
+        performSegue(withIdentifier: "moveToCompletedToDoVC", sender: eachToDo)
+    }
+   
 
    
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+    
 
     
   //  MARK: - Navigation
@@ -90,7 +72,12 @@ class ToDoTableTableViewController: UITableViewController {
         if let nextAddToDoVC = segue.destination as? AddToDoViewController {
             nextAddToDoVC.previousToDoTVC = self
         }
-
+        if let nextCompletedToDoVC = segue.destination as? CompletedToDoViewController{
+            if let choosenToDo = sender as? ToDoClass {
+                nextCompletedToDoVC.selectedToDo = choosenToDo
+                nextCompletedToDoVC.previousToDoTVC = self
+            }
+        }
     }
 
 }

@@ -9,18 +9,20 @@ import UIKit
 
 class CompletedToDoViewController: UIViewController {
     
+    var previousToDoTVC = ToDoTableTableViewController()
+    var selectedToDo = ToDoClass()
+    
     @IBOutlet weak var toDoDisplay: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        toDoDisplay.text = selectedToDo.description
        
     }
     
 
-    @IBAction func completeTapped(_ sender: UIButton) {
+    @IBAction func completedTapped(_ sender: Any) {
     }
-    
     
     /*
     // MARK: - Navigation
@@ -31,5 +33,5 @@ class CompletedToDoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

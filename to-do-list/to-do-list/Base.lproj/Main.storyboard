@@ -41,7 +41,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="dp2-Hy-HIz" kind="show" id="B7n-vc-BZk"/>
+                        <segue destination="dp2-Hy-HIz" kind="show" identifier="moveToCompletedToDoVC" id="B7n-vc-BZk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tIZ-9V-DQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -57,19 +57,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To Do" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDN-c9-k9d">
-                                <rect key="frame" x="186" y="134" width="45" height="21"/>
+                                <rect key="frame" x="108" y="134" width="213" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ky8-U4-0aR">
-                                <rect key="frame" x="165" y="315" width="87" height="35"/>
+                                <rect key="frame" x="108" y="286" width="150" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Complete"/>
                                 <connections>
-                                    <action selector="completeTapped:" destination="dp2-Hy-HIz" eventType="touchUpInside" id="UAV-S4-A2c"/>
+                                    <action selector="completedTapped:" destination="dp2-Hy-HIz" eventType="touchUpInside" id="PQw-dc-Iqy"/>
                                 </connections>
                             </button>
                         </subviews>
